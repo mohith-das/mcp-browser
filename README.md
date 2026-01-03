@@ -1,6 +1,14 @@
 # MCP Browser Server
 
-FastAPI server that exposes a minimal MCP JSON-RPC interface and drives a Playwright browser for simple browsing tools.
+Minimal MCP JSON-RPC server that exposes Playwright browsing tools via FastAPI.
+
+## Highlights
+- Implements a compact MCP tool surface (`open_url`, `click`, `fill_form`, `get_text`).
+- Reuses a single headless Chromium instance for efficiency.
+- Simple JSON-RPC request/response handling.
+
+## Tech
+Python, FastAPI, Playwright
 
 ## Setup
 ```bash
@@ -15,12 +23,5 @@ playwright install
 uvicorn mcp_browser_server:app --host 0.0.0.0 --port 8000
 ```
 
-## Supported Tools
-- `open_url`
-- `click`
-- `fill_form`
-- `get_text`
-
 ## Notes
 - CORS is open by default.
-- The server keeps a single shared browser instance.
